@@ -50,7 +50,7 @@ const Planning: React.FC = () => {
 
   const fetchTasks = useCallback(async () => {
     try {
-      console.log('Planning: Fetching from http://localhost:5000/api/tasks');
+      console.log('Planning: Fetching from https://planncomm-backend.onrender.com/api/tasks');
       const params: any = {};
       if (filter !== 'all') params.status = filter;
       if (selectedEmployeeId !== 'all') params.employee_id = selectedEmployeeId;
@@ -60,7 +60,7 @@ const Planning: React.FC = () => {
       } else if (selectedYear !== 'all') {
         params.year = selectedYear;
       }
-      const response = await axios.get('http://localhost:5000/api/tasks', { params });
+      const response = await axios.get('https://planncomm-backend.onrender.com/api/tasks', { params });
       console.log('Planning: Received response:', response.data);
       console.log('Planning: Number of tasks:', response.data.length);
       setTasks(response.data);
@@ -82,7 +82,7 @@ const Planning: React.FC = () => {
   const fetchEmployees = useCallback(async () => {
     try {
       console.log('Planning: Fetching employees...');
-      const response = await axios.get('http://localhost:5000/api/employees');
+      const response = await axios.get('https://planncomm-backend.onrender.com/api/employees');
       console.log('Planning: Employees fetched:', response.data.length);
       setEmployees(response.data);
     } catch (error) {
@@ -135,7 +135,7 @@ const Planning: React.FC = () => {
         ...formData,
         assigned_employee_id: formData.assigned_employee_id
       };
-      await axios.put(`http://localhost:5000/api/tasks/${editingTask.id}`, taskData);
+      await axios.put(`https://planncomm-backend.onrender.com/api/tasks/${editingTask.id}`, taskData);
       await fetchTasks(); // Refresh the list
       handleCloseModal();
       alert('Task updated successfully!');

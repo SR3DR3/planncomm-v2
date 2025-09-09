@@ -98,7 +98,7 @@ const CompanyOverview: React.FC = () => {
 
   const fetchClients = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/clients');
+      const response = await axios.get('https://planncomm-backend.onrender.com/api/clients');
       setClients(response.data);
       // Auto-select first client if available
       if (response.data.length > 0) {
@@ -114,7 +114,7 @@ const CompanyOverview: React.FC = () => {
     
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:5000/api/tasks', {
+      const response = await axios.get('https://planncomm-backend.onrender.com/api/tasks', {
         params: {
           client_id: selectedClientId,
           year: selectedYear

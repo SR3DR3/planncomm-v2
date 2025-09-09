@@ -36,7 +36,7 @@ const Clients: React.FC = () => {
 
   const fetchClients = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/clients');
+      const response = await axios.get('https://planncomm-backend.onrender.com/api/clients');
       setClients(response.data);
     } catch (error) {
       console.error('Error fetching clients:', error);
@@ -93,11 +93,11 @@ const Clients: React.FC = () => {
     try {
       if (isAdding) {
         // Create new client
-        await axios.post('http://localhost:5000/api/clients', formData);
+        await axios.post('https://planncomm-backend.onrender.com/api/clients', formData);
         alert('Client created successfully!');
       } else if (editingClient) {
         // Update existing client
-        await axios.put(`http://localhost:5000/api/clients/${editingClient.id}`, formData);
+        await axios.put(`https://planncomm-backend.onrender.com/api/clients/${editingClient.id}`, formData);
         alert('Client updated successfully!');
       }
 
@@ -120,7 +120,7 @@ const Clients: React.FC = () => {
   const handleDelete = async (id: number) => {
     if (window.confirm('Are you sure you want to delete this client?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/clients/${id}`);
+        await axios.delete(`https://planncomm-backend.onrender.com/api/clients/${id}`);
         setClients(clients.filter(client => client.id !== id));
         alert('Client deleted successfully');
       } catch (error) {

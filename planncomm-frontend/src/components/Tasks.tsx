@@ -81,8 +81,8 @@ const Tasks: React.FC = () => {
       } else if (selectedYear !== 'all') {
         params.year = selectedYear;
       }
-      console.log('Tasks: Fetching from http://localhost:5000/api/tasks', params);
-      const response = await axios.get('http://localhost:5000/api/tasks', { params });
+      console.log('Tasks: Fetching from https://planncomm-backend.onrender.com/api/tasks', params);
+      const response = await axios.get('https://planncomm-backend.onrender.com/api/tasks', { params });
       console.log('Tasks: Received response:', response.data);
       console.log('Tasks: Number of tasks:', response.data.length);
       setTasks(response.data);
@@ -104,8 +104,8 @@ const Tasks: React.FC = () => {
   const fetchEmployees = async () => {
     try {
       setEmployeesLoading(true);
-      console.log('Fetching employees from:', 'http://localhost:5000/api/employees');
-      const response = await axios.get('http://localhost:5000/api/employees');
+      console.log('Fetching employees from:', 'https://planncomm-backend.onrender.com/api/employees');
+      const response = await axios.get('https://planncomm-backend.onrender.com/api/employees');
       console.log('Employees fetched successfully:', response.data);
       console.log('Number of employees:', response.data.length);
       setEmployees(response.data);
@@ -127,7 +127,7 @@ const Tasks: React.FC = () => {
   const fetchClients = async () => {
     try {
       console.log('Fetching clients...');
-      const response = await axios.get('http://localhost:5000/api/clients');
+      const response = await axios.get('https://planncomm-backend.onrender.com/api/clients');
       console.log('Clients fetched:', response.data.length);
       setClients(response.data);
       // Set default client ID if we have clients
@@ -208,7 +208,7 @@ const Tasks: React.FC = () => {
           status: formData.status,
           assigned_employee_id: formData.assigned_employee_id
         };
-        await axios.post('http://localhost:5000/api/tasks', taskData);
+        await axios.post('https://planncomm-backend.onrender.com/api/tasks', taskData);
         alert('Task created successfully!');
       } else if (editingTask) {
         // Update existing task - include employee assignment
@@ -216,7 +216,7 @@ const Tasks: React.FC = () => {
           ...formData,
           assigned_employee_id: formData.assigned_employee_id
         };
-        await axios.put(`http://localhost:5000/api/tasks/${editingTask.id}`, taskData);
+        await axios.put(`https://planncomm-backend.onrender.com/api/tasks/${editingTask.id}`, taskData);
         alert('Task updated successfully!');
       }
 
@@ -243,7 +243,7 @@ const Tasks: React.FC = () => {
   const handleDelete = async (id: number) => {
     if (window.confirm('Are you sure you want to delete this task?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+        await axios.delete(`https://planncomm-backend.onrender.com/api/tasks/${id}`);
         setTasks(tasks.filter(task => task.id !== id));
         alert('Task deleted successfully');
       } catch (error) {

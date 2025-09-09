@@ -59,7 +59,7 @@ const Dashboard: React.FC = () => {
 
   const checkBackendConnection = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/health');
+      const response = await axios.get('https://planncomm-backend.onrender.com/api/health');
       console.log('Backend connection successful:', response.data);
     } catch (error) {
       console.error('Backend connection failed:', error);
@@ -75,9 +75,9 @@ const Dashboard: React.FC = () => {
         : {};
 
       const [clientsRes, employeesRes, tasksRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/clients'),
-        axios.get('http://localhost:5000/api/employees'),
-        axios.get('http://localhost:5000/api/tasks', { params: taskParams }),
+        axios.get('https://planncomm-backend.onrender.com/api/clients'),
+        axios.get('https://planncomm-backend.onrender.com/api/employees'),
+        axios.get('https://planncomm-backend.onrender.com/api/tasks', { params: taskParams }),
       ]);
 
       const clients = clientsRes.data;

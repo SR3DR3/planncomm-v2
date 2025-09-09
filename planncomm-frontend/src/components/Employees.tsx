@@ -34,7 +34,7 @@ const Employees: React.FC = () => {
 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/employees');
+      const response = await axios.get('https://planncomm-backend.onrender.com/api/employees');
       setEmployees(response.data);
     } catch (error) {
       console.error('Error fetching employees:', error);
@@ -88,11 +88,11 @@ const Employees: React.FC = () => {
     try {
       if (isAdding) {
         // Create new employee
-        await axios.post('http://localhost:5000/api/employees', formData);
+        await axios.post('https://planncomm-backend.onrender.com/api/employees', formData);
         alert('Employee created successfully!');
       } else if (editingEmployee) {
         // Update existing employee
-        await axios.put(`http://localhost:5000/api/employees/${editingEmployee.id}`, formData);
+        await axios.put(`https://planncomm-backend.onrender.com/api/employees/${editingEmployee.id}`, formData);
         alert('Employee updated successfully!');
       }
 
@@ -115,7 +115,7 @@ const Employees: React.FC = () => {
   const handleDelete = async (id: number) => {
     if (window.confirm('Are you sure you want to delete this employee?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/employees/${id}`);
+        await axios.delete(`https://planncomm-backend.onrender.com/api/employees/${id}`);
         setEmployees(employees.filter(employee => employee.id !== id));
         alert('Employee deleted successfully');
       } catch (error) {
