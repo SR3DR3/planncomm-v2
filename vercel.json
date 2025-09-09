@@ -1,0 +1,19 @@
+{
+  "name": "planncomm-frontend",
+  "version": 2,
+  "builds": [
+    {
+      "src": "planncomm-frontend/package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "planncomm-frontend/$1"
+    }
+  ],
+  "installCommand": "cd planncomm-frontend && npm install",
+  "buildCommand": "cd planncomm-frontend && npm run build",
+  "outputDirectory": "planncomm-frontend/build"
+}

@@ -1,0 +1,20 @@
+BEFORE ZIPPING - Files/Folders to EXCLUDE to reduce size:
+
+Frontend:
+- planncomm-frontend/node_modules  (DELETE or EXCLUDE - 300+ MB)
+- planncomm-frontend/build         (DELETE or EXCLUDE if exists)
+
+Backend:
+- planncomm-backend/node_modules   (DELETE or EXCLUDE - 100+ MB)
+- planncomm-backend/dist          (DELETE or EXCLUDE if exists)
+
+These will be recreated with 'npm install' on the other laptop.
+
+IMPORTANT - KEEP THESE:
+✅ planncomm-backend/database/planncomm.db (Your 380 tasks!)
+✅ All src folders
+✅ All package.json files
+✅ README-DEMO.md
+✅ START-DEMO.bat
+
+Final zip should be < 5 MB instead of 400+ MB

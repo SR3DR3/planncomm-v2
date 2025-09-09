@@ -1,0 +1,21 @@
+{
+  "name": "planncomm-v2",
+  "version": "2.0.0",
+  "description": "PlannComm v2 - Accounting Planning Software",
+  "scripts": {
+    "install:frontend": "cd planncomm-frontend && npm install",
+    "install:backend": "cd planncomm-backend && npm install",
+    "install:all": "npm run install:frontend && npm run install:backend",
+    "build:frontend": "cd planncomm-frontend && npm run build",
+    "build:backend": "cd planncomm-backend && npm run build",
+    "start:frontend": "cd planncomm-frontend && npm start",
+    "start:backend": "cd planncomm-backend && npm run dev",
+    "demo": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  },
+  "keywords": ["accounting", "planning", "tasks", "react", "nodejs"],
+  "author": "PlannComm Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
