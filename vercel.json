@@ -4,16 +4,16 @@
   "builds": [
     {
       "src": "planncomm-frontend/package.json",
-      "use": "@vercel/node"
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "planncomm-frontend/$1"
+      "dest": "/planncomm-frontend/build/$1"
     }
-  ],
-  "installCommand": "cd planncomm-frontend && npm install",
-  "buildCommand": "cd planncomm-frontend && npm run build",
-  "outputDirectory": "planncomm-frontend/build"
+  ]
 }
